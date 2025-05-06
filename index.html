@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>RocketFamqMovie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="bgParticles" style="position:fixed;z-index:0;left:0;top:0;width:100vw;height:100vh;pointer-events:none;"></canvas>
+
+    <header class="header">
+        <div class="container header-content">
+            <h1 id="homeLink" class="logo">RocketFamqMovie</h1>
+            <div class="search-block">
+                <input type="text" id="searchInput" placeholder="Поиск по названию..." class="search-input">
+                <button id="searchBtn" class="btn accent">Поиск</button>
+            </div>
+        </div>
+    </header>
+    <section id="filters" class="filters container">
+        <select id="genreFilter" class="filter-select"><option value="">Жанр</option></select>
+        <select id="countryFilter" class="filter-select"><option value="">Страна</option></select>
+        <input type="number" id="yearFrom" placeholder="Год от" class="filter-input">
+        <input type="number" id="yearTo" placeholder="Год до" class="filter-input">
+        <input type="number" id="ratingFrom" placeholder="Рейтинг от" min="0" max="10" step="0.1" class="filter-input">
+        <input type="number" id="ratingTo" placeholder="Рейтинг до" min="0" max="10" step="0.1" class="filter-input">
+        <select id="sortFilter" class="filter-select">
+            <option value="RATING">По рейтингу</option>
+            <option value="YEAR">По дате выхода</option>
+            <option value="NUM_VOTE">По популярности</option>
+        </select>
+        <button id="filterBtn" class="btn">Применить</button>
+    </section>
+    <main>
+        <div id="moviesList" class="movie-list container"></div>
+        <div id="pagination" class="pagination container"></div>
+    </main>
+
+    <div id="modalOverlay" class="modal-overlay" style="display:none;">
+      <div class="modal-content" id="modalContent"></div>
+      <span class="modal-close" id="modalClose">&times;</span>
+    </div>
+
+    <div id="frameModal" class="modal-overlay" style="display:none;">
+      <div class="frame-modal-content">
+        <button id="framePrev" class="frame-nav">&#8592;</button>
+        <img id="frameModalImg" src="" alt="Кадр" />
+        <button id="frameNext" class="frame-nav">&#8594;</button>
+        <span class="modal-close" id="frameModalClose">&times;</span>
+      </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
